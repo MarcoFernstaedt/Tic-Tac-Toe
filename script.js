@@ -15,11 +15,11 @@ const gameFlow = (function () {
     return { playerName1.playerNumber, playerName2.playerNumber };
 }())
 
-function createPlayer(playerName, playerNumber, playerOX) {
+function createPlayer(playerName) {
     let assignMark = ['X', 'O']
     let assignNumber = [1, 2]
-    const playerOX = ''
-    const playerNumber = ''
+    let playerOX = ''
+    let playerNumber = ''
 
     if (playerName === '' || playerName == null) {
         alert('Please enter a valid name!')
