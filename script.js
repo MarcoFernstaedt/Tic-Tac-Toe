@@ -6,13 +6,14 @@ const gameboard = (function () {
 const gameFlow = (function () {
     let playerName1 = prompt('Please Enter Your Name: ')
     let playerName2 = prompt('Please Enter Your Name: ')
-    if (playerNumber !== 2) {
-        let player1 = createPlayer(playerName1)
-    } else {
-        let player2 = createPlayer(playerName2)
-    }
+    let player1 = createPlayer(playerName1)
+    let player2 = createPlayer(playerName2)
 
-    return { player1.playerNumber, player2.playerNumber };
+    return console.log(player1, player2)
+    // {
+    //     p1: player1.playerNumber,
+    //     p2: player2.playerNumber,
+    // }
 }())
 
 function createPlayer(playerName) {
@@ -21,16 +22,11 @@ function createPlayer(playerName) {
     let playerOX = ''
     let playerNumber = ''
 
-    if (playerName === '' || playerName == null) {
-        alert('Please enter a valid name!')
-        createPlayer(playerName)
-    } else if (playerName !== '' || playerName !== null) {
-        if (assignMark.length > 0) {
-            playerOX = assignMark[0]
-            playerNumber = assignNumber[0]
-            assignMark.shift()
-            assignNumber.shift()
-        }
+    if (playerName !== '' || playerName !== null) {
+        playerOX = assignMark[1]
+        playerNumber = assignNumber[1]
+    } else {
+        console.log('error')
     }
     return { playerName, playerNumber, playerOX }
 };
