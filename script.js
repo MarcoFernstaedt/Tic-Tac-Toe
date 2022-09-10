@@ -12,7 +12,7 @@ const gameFlow = (function () {
         let player2 = createPlayer(playerName2)
     }
 
-    return { playerName1.playerNumber, playerName2.playerNumber };
+    return { player1.playerNumber, player2.playerNumber };
 }())
 
 function createPlayer(playerName) {
