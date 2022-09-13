@@ -30,3 +30,7 @@ h1 {
     background-color: gray;
     border: 2px solid black;
 }
+
+.tiles:hover {
+    background-color: lightgray;
+}
