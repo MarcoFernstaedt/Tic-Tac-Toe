@@ -17,17 +17,37 @@ const gameFlow = (function () {
 }())
 
 function createPlayer(playerName) {
-    let assignMark = ['X', 'O']
-    let assignNumber = [1, 2]
     let playerOX = ''
     let playerNumber = ''
+    let index = 1
 
     if (playerName !== '' || playerName !== null) {
-        playerOX = assignMark[1]
-        playerNumber = assignNumber[1]
+        if (gameFlow.player1 === false) {
+            playerOX = (function (index) {
+                return 'X'
+            }());
+            assignNumber = (function (index) {
+                return 1
+            }());
+            index++
+            playerNumber = assignNumber
+        } else {
+            playerOX = (function (index) {
+                return 'O'
+            }());
+            assignNumber = (function (index) {
+                return 2
+            }());
+            index++
+            playerNumber = assignNumber
+        }
+
+        // playerOX = assignMark[1]
+        // playerNumber = assignNumber[1]
     } else {
         console.log('error')
     }
+    console.log(playerOX, playerNumber)
     return { playerName, playerNumber, playerOX }
 };
 
