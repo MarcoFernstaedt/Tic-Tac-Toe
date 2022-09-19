@@ -4,12 +4,9 @@ const gameboard = (function () {
 }())
 
 const gameFlow = (function () {
-    let playerName1 = prompt('Please Enter Your Name: ')
-    let playerName2 = prompt('Please Enter Your Name: ')
-    let player1 = createPlayer(playerName1)
-    let player2 = createPlayer(playerName2)
+    createPlayer()
 
-    return console.log(player1, player2)
+    // return { player1, player2 }
     // {
     //     p1: player1.playerNumber,
     //     p2: player2.playerNumber,
@@ -17,38 +14,16 @@ const gameFlow = (function () {
 }())
 
 function createPlayer(playerName) {
-    let playerOX = ''
-    let playerNumber = ''
-    let index = 1
+    let name1 = prompt('Enter player1 name')
+    let name2 = prompt('Enter player2 name')
 
-    if (playerName !== '' || playerName !== null) {
-        if (gameFlow.player1 === false) {
-            playerOX = (function (index) {
-                return 'X'
-            }());
-            assignNumber = (function (index) {
-                return 1
-            }());
-            index++
-            playerNumber = assignNumber
-        } else {
-            playerOX = (function (index) {
-                return 'O'
-            }());
-            assignNumber = (function (index) {
-                return 2
-            }());
-            index++
-            playerNumber = assignNumber
-        }
+    const player1 = ['name', 'X']
+    player1[0] = name1.toUpperCase()
+    const player2 = ['name', 'O']
+    player2[0] = name2.toUpperCase()
 
-        // playerOX = assignMark[1]
-        // playerNumber = assignNumber[1]
-    } else {
-        console.log('error')
-    }
-    console.log(playerOX, playerNumber)
-    return { playerName, playerNumber, playerOX }
+    console.log(player1, player2)
+    return { player1, player2 }
 };
 
 function renderToScreen() {
