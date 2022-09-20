@@ -12,9 +12,8 @@ const gameboard = (function () {
 const gameFlow = (function () {
     createPlayer()
 
-    let currentPlayer = player1[1];
-    let previousPlyaer = player2[1];
-
+    let currentPlayer = setCurrentPlayer('X')
+    console.log(currentPlayer)
     // for (i = 0; i < gameboard.game.length; i++) {
     //     if (gameboard.game[i] === 'X') {
     //         XCount++
@@ -23,7 +22,7 @@ const gameFlow = (function () {
     //     }
     // }
 
-    return { currentPlayer, XCount, OCount }
+    // return { currentPlayer, previousPlyaer }
 }())
 
 function createPlayer(playerName) {
@@ -48,20 +47,21 @@ function renderToScreen() {
                 }
             }
 
-            if (XCount > OCount && OCount !== XCount) {
-                gameFlow.currentPlayer = player2[1]
-                gameFlow.previousPlyaer = player1[1]
+            if (XCount > OCount) {
+                setCurrentPlayer('O')
+                console.log('player2\'s turn now')
             }
 
-            if (OCount > XCount && XCount !== OCount) {
-                gameFlow.currentPlayer = player1[1]
-                gameFlow.previousPlyaer = player2[1]
+            if (OCount === XCount) {
+                setCurrentPlayer('X')
+                console.log('player1\'s turn')
             }
+
 
             let index = tile.dataset.number
-            gameboard.game[index] = gameFlow.currentPlayer;
+            gameboard.game[index] = getCurrentPlayer.currentPlayer;
+            console.log(getCurrentPlayer.currentPlayer)
             console.log(gameboard.game)
-
             tile.textContent = gameboard.game[index]
         })
     })
@@ -70,8 +70,11 @@ function renderToScreen() {
 
 renderToScreen()
 
-// function marker(mark) {
+function getCurrentPlayer(currentPlayer) {
+    let newCurrentPlayer = gameFlow.currentPlayer
+    return { newCurrentPlayer }
+}
 
-//     return { mark }
-// }
-
+function setCurrentPlayer(player) {
+    return { player }
+}
